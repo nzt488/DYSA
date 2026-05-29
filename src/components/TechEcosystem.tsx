@@ -5,7 +5,16 @@ import { OrbitControls, Text, Line, Sphere, Float } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
-const TECH_NODES = [
+// 1. THIS IS THE NEW TYPE DEFINITION. 
+// It tells TypeScript that 'pos' must be exactly 3 numbers.
+type TechNode = {
+  name: string;
+  pos: [number, number, number];
+  color: string;
+};
+
+// 2. WE APPLY THAT TYPE HERE by adding ": TechNode[]" after the variable name.
+const TECH_NODES: TechNode[] = [
   { name: "AutoCAD", pos: [-3, 2, 0], color: "#ff0000" },
   { name: "SolidWorks", pos: [3, 2, 0], color: "#ff0000" },
   { name: "Python", pos: [-2, 0, 2], color: "#00B7C3" },
